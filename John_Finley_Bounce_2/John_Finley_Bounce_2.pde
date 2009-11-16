@@ -1,5 +1,5 @@
 int boxSize = 10;
-int startHeight = 20;
+int startHeight = 100;
 int boxPos = startHeight;
 
 boolean descending = true;
@@ -26,6 +26,10 @@ void draw() {
     }
   }
   else{
+    if(startHeight == 200){
+      boxDraw();
+    }
+
     boxDraw();
     boxPos--;
     
