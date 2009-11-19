@@ -1,9 +1,9 @@
 int boxSize = 10;
-//int dec = 2;
 
 float boxPos = 10;
 float velo = 0;
 float acc = 0.02;
+float dec = 0.1;
 
 boolean descending = true;
 
@@ -24,6 +24,7 @@ void bounce(){
   if(descending){ //going down
     if(boxPos > (height - boxSize)){ //we have reached the bottom
       descending = false;
+      velo = velo - dec;
     }
     else{ //not yet at bottom
       boxPos = boxPos + velo;

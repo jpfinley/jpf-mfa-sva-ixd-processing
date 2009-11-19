@@ -4,22 +4,29 @@ void setup() {
 }
 void draw() {
   background(255);
-//  house(100, 100);
-//  snowMan(150, 110);
-//  snowMan(150, 400);
-//  snowMan(200, 300); 
-//  snowMan(250, 400); 
-//  snowMan(475, 110);
-  tree(250, 490);
-//  tree(223, 420);
-//  tree(256, 450);
-//  tree(288, 460);
-//  tree(212, 460);
-//  MakeTweety(460,  300);
-//  MakeTweety(90,  200);
-//  MakeTweety(80,  380);
-//  MakeTweety(400, 500);
-//  MakeTweety(250, 300);
+  house(100, 100);
+  snowMan(150, 110);
+  snowMan(150, 400);
+  snowMan(200, 300); 
+  snowMan(250, 400); 
+  snowMan(475, 110);
+  if( second()%2 == 0){
+    tree_light_on(450, 490);
+    println("on");
+  }
+  else{
+    tree_light_off(450, 490);
+    println("off");
+  }
+  tree_light_on(223, 420);
+  tree_light_on(256, 450);
+  tree_light_on(288, 460);
+  tree_light_on(212, 460);
+  MakeTweety(460,  300);
+  MakeTweety(90,  200);
+  MakeTweety(80,  380);
+  MakeTweety(400, 500);
+  MakeTweety(250, 300);
 }
 
 // Draws a house
@@ -41,7 +48,7 @@ void snowMan(int x, int y){ //x is the x position of the snowman's circles
   ellipse(x, y, 5, 5);
 }
 
-void tree(int x, int y){
+void tree_light_on(int x, int y){
   noStroke();
   fill(150,120,80); //brown
   rect(x+5,y+59,10,10); //stump
@@ -55,11 +62,24 @@ void tree(int x, int y){
   ellipse(x+5,y+23,4,4); //ornament
   ellipse(x+15,y+36,4,4); //ornament
   ellipse(x+9,y+48,4,4); //ornament
-  
-  delay(500);
+}
+
+void tree_light_off(int x, int y){
+  noStroke();
+  fill(150,120,80); //brown
+  rect(x+5,y+59,10,10); //stump
+
   fill(0,255,0); //green
-  ellipse(x+15,y+36,4,4); //ornament
-  delay(500);
+  triangle(x+10, y+15, x+18, y+30, x+1, y+30); //top
+  triangle(x+10, y+15, x+20, y+45, x,   y+45); //middle
+  triangle(x+10, y+30, x+25, y+60, x-5, y+60); //bottom
+
+  fill(255,0,0); //red
+  ellipse(x+5,y+23,4,4); //ornament
+  ellipse(x+9,y+48,4,4); //ornament
+//
+//  fill(0,255,225); //green
+//  ellipse(x+45,y+36,4,4); //ornament
 }
 
 void MakeTweety(int posX, int posY){
